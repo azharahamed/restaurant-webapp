@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Restuarant App</title>
+</head>
+<body>
+<nav class="navigation">
+    <a href="/">Home</a>
+    <a href="/createmenu">Create Menu</a>
+    <a href="/createmenuitem">Create MenuItem</a>
+    <a href="/addmenuitem">Add MenuItem</a>
+</nav>
+<h1>Create Menu Item</h1>
+<p class="error" th:text="${error}"></p>
+<form action="/createmenuitem" method="post">
+    <table>
+        <tr>
+            <th><label for="name">Name</label></th>
+            <th><input type="text" name="name" /></th>
+        </tr>
+        <tr>
+            <th><label for="description">Description</label></th>
+            <th><input type="text" name="description" /></th>
+        </tr>
+        <tr>
+            <th><label for="category">Category</label></th>
+            <th><input type="text" name="category" /></th>
+        </tr>
+        <tr>
+            <th><label for="price">Price</label></th>
+            <th><input type="text" name="price" /></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th><input type="submit" name="Submit" /></th>
+        </tr>
+    </table>
+</form>
+<table>
+    <tr><p align="center">The Existing Menu Items</p>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Delete ?</th>
+    </tr>
+    <tr th:each="menuitem : ${menuItems}">
+        <td th:text="${menuitem.value.name}"></td>
+        <td th:text="${menuitem.value.description}"></td>
+        <td th:text="${menuitem.value.category}"></td>
+        <td th:text="${menuitem.value.price}"></td>
+        <td><a th:href="@{'/deletemenuitem?name='+ ${menuitem.key}}">X</a></td>
+    </tr>
+</table>
+</body>
+</html>

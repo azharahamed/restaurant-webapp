@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Restuarant App</title>
+</head>
+<body>
+<nav class="navigation">
+    <a href="/">Home</a>
+    <a href="/createmenu">Create Menu</a>
+    <a href="/createmenuitem">Create MenuItem</a>
+    <a href="/addmenuitem">Add MenuItem</a>
+</nav>
+<h1>Create Menu</h1>
+<p class="error" th:text="${error}"></p>
+<form action="/addmenu" method="post">
+    <table>
+        <tr>
+            <th><label for="restuarant">Restuarant Name</label></th>
+            <th><input type="text" name="restuarant" /></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th><input type="submit" name="Submit" /></th>
+        </tr>
+    </table>
+</form>
+<table>
+    <tr><p align="center">The Existing Menu Items</p>
+    </tr>
+    <tr>
+        <th>Restuarant Name</th>
+        <th>Last Updated</th>
+    </tr>
+    <tr th:each="menu : ${menus}">
+        <td th:text="${menu.restuarant}"></td>
+        <td th:text="${menu.lastUpdated}"></td>
+        <td><a th:href="@{'/deleteMenuItem?name='+ ${menu.restuarant}}">X</a></td>
+    </tr>
+</table>
+</body>
+</html>
