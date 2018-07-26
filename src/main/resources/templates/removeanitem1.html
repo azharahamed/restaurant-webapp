@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<nav class="navigation">
+    <a href="/">Home</a>
+    <a href="/createmenu">Menus</a>
+    <a href="/createmenuitem">MenuItems</a>
+    <a href="/addmenuitem">Add MenuItem</a>
+    <a href="/removeanitem">Remove the MenuItem</a>
+</nav>
+<h1>Remove an Item from a Menu</h1>
+<form method="post" action="/removeanitem" id="removeanitem">
+    <select form="removeanitem" name="menu" value=" ">
+        <option th:value="${menuname}" th:text="${menuname}"></option>
+    </select>
+    <select form="removeanitem" name="menuitem" value=" ">
+        <option th:each="menuitem:${menuItems}" th:value="${menuitem.name}" th:text="${menuitem.name}"></option>
+    </select>
+    <input type="submit" name="Submit" />
+</form>
+</body>
+</html>
