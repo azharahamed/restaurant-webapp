@@ -2,15 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <title>Restuarant App</title>
 </head>
 <body>
-<nav class="navigation">
-    <a href="/">Home</a>
-    <a href="/createmenu">Create Menu</a>
-    <a href="/createmenuitem">Create MenuItem</a>
-    <a href="/addmenuitem">Add MenuItem</a>
-</nav>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="/createmenu">Create Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="/createmenuitem">Create MenuItem</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/addmenuitem">Add MenuItem</a>
+            </li>
+        </ul>
+
 <h1>Index</h1>
 </body>
 </html>
